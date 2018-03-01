@@ -1,11 +1,14 @@
 
 import { Component } from '@angular/core'
-//Le path « @angular/core » est défini dans "systmejs.congig.js" comme correspondant à 'npm:@angular/core/bundles/core.umd.js',
-// « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
+//Le path ï¿½ @angular/core ï¿½ est dï¿½fini dans "systmejs.congig.js" comme correspondant ï¿½ 'npm:@angular/core/bundles/core.umd.js',
+// ï¿½ npm: ï¿½ est mappï¿½ au dossier "node_modules" tel que dï¿½fini tjrs dans "systmejs.congig.js"
 @Component({
 	selector: 'events-app',
-	template: '<events-list> </events-list>'
-}) 
+	template: `
+	<nav-bar> </nav-bar>
+	<events-list> </events-list>
+	`
+})
 export class EventsAppComponent {
 
 }

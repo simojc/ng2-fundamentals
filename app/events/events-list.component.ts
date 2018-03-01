@@ -4,10 +4,16 @@ import { Component } from '@angular/core'
 // « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
 @Component({
 	selector: 'events-list',
-	template: ' <div>  <h1> Upcomming Angular 2 Events   </h1>    <hr> <events-thumbnail  #thumbnail [event]="event1"> </events-thumbnail>  <button class="btn btn-primary" (click)="thumbnail.logFoo()"> Logger Nourriture</button>  </div> '
-}) 
+	template: `
+		<div>
+			<h1> Upcomming Angular 2 Events </h1>
+			<hr>
+			<events-thumbnail  #thumbnail [event]="event1"> </events-thumbnail>
+		</div>
+	 `
+})
 export class EventsListComponent {
-	event1 = {  
+	event1 = {
 		id:1,
 		name:'Claude fermat Connect',
 		date:'9/26/2036',
@@ -21,5 +27,5 @@ export class EventsListComponent {
 			country: 'Canada'
 		}
 	}
-	
+
 }
