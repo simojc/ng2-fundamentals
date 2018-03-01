@@ -14,6 +14,12 @@ var core_1 = require("@angular/core");
 var EventsThumbnailComponent = (function () {
     function EventsThumbnailComponent() {
     }
+    EventsThumbnailComponent.prototype.getStartTimeStyle = function () {
+        if (this.event && this.event.time === '8:00 am')
+            return { color: '#003300', 'font-weight': 'bold' };
+        return {};
+        // On peut assi utiliser des classe de style pour faire la même chose et utiliser dans le template ngClass à la place de ngStyle.
+    };
     return EventsThumbnailComponent;
 }());
 __decorate([
@@ -24,7 +30,7 @@ EventsThumbnailComponent = __decorate([
     core_1.Component({
         selector: 'events-thumbnail',
         templateUrl: 'app/events/events-thumbnail.component.html',
-        styles: ["\n\t\t.pad-left {margin-left: 10px;}\n\t\t.well div {color: #bbb;}\n\t"]
+        styles: ["\n\t\t.thumbnail {min-height: 201px;}\n\t\t.pad-left {margin-left: 10px;}\n\t\t.well div {color: #bbb;}\t\t\n\t"]
     }),
     __metadata("design:paramtypes", [])
 ], EventsThumbnailComponent);

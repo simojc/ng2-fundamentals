@@ -14,6 +14,7 @@ var events_app_component_1 = require("./events-app.component");
 var events_list_component_1 = require("./events/events-list.component");
 var events_thumbnail_component_1 = require("./events/events-thumbnail.component");
 var navbar_component_1 = require("./nav/navbar.component");
+var events_service_1 = require("./events/shared/events.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,6 +29,7 @@ AppModule = __decorate([
             events_thumbnail_component_1.EventsThumbnailComponent,
             navbar_component_1.NavBarComponent
         ],
+        providers: [events_service_1.EventService],
         bootstrap: [events_app_component_1.EventsAppComponent]
     }),
     __metadata("design:paramtypes", [])
