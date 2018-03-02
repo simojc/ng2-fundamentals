@@ -6,9 +6,9 @@ import { Component } from '@angular/core'
 	selector: 'events-app',
 	template: `
 	<nav-bar> </nav-bar>
-	<events-list> </events-list>
+	<router-outlet> </router-outlet>	
 	`
 })
 export class EventsAppComponent {
-
+	//<events-list> </events-list>
 }
