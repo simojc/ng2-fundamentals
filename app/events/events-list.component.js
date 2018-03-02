@@ -9,21 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+//Le path « @angular/core » est défini dans "systmejs.congig.js" comme correspondant à 'npm:@angular/core/bundles/core.umd.js',
+// « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
+var event_service_1 = require("./shared/event.service");
 var EventsListComponent = (function () {
-    function EventsListComponent() {
-    }
-    //eventService 
-    EventsListComponent.prototype.contructor = function (EventService) {
+    //eventService
+    function EventsListComponent(eventService) {
+        this.eventService = eventService;
         //this.eventService = eventService
+    }
+    EventsListComponent.prototype.ngOnInit = function () {
+        this.events = this.eventService.getEvents();
     };
     return EventsListComponent;
 }());
 EventsListComponent = __decorate([
     core_1.Component({
         selector: 'events-list',
-        template: "\n\t\t\t<div>\n\t\t\t\t<h1> Upcomming Angular 2 Events </h1>\n\t\t\t\t<hr>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div  *ngFor=\"let evt of events\"  class=\"col-md-5\"> \n\t\t\t\t\t\t\t<events-thumbnail  [event]=\"evt\"> </events-thumbnail>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\t\n\t\t\t</div>\n\t\t "
+        template: "\n\t\t\t<div>\n\t\t\t\t<h1> Upcomming Angular 2 Events </h1>\n\t\t\t\t<hr>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div  *ngFor=\"let evt of events\"  class=\"col-md-5\">\n\t\t\t\t\t\t\t<events-thumbnail  [event]=\"evt\"> </events-thumbnail>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t "
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [event_service_1.EventService])
 ], EventsListComponent);
 exports.EventsListComponent = EventsListComponent;
 //# sourceMappingURL=events-list.component.js.map
