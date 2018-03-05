@@ -13,15 +13,17 @@ var core_1 = require("@angular/core");
 // « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
 var event_service_1 = require("./shared/event.service");
 var toastr_service_1 = require("../common/toastr.service");
+var router_1 = require("@angular/router");
 var EventsListComponent = (function () {
     //eventService
-    function EventsListComponent(eventService, toastr) {
+    function EventsListComponent(eventService, toastr, route) {
         this.eventService = eventService;
         this.toastr = toastr;
+        this.route = route;
         //this.eventService = eventService
     }
     EventsListComponent.prototype.ngOnInit = function () {
-        this.events = this.eventService.getEvents();
+        this.events = this.route.snapshot.data['events'];
     };
     EventsListComponent.prototype.handlethumbnailClick = function (eventName) {
         //toastr.success(eventName)
@@ -34,7 +36,7 @@ EventsListComponent = __decorate([
     core_1.Component({
         template: "\n\t\t\t<div>\n\t\t\t\t<h1> Upcomming Angular 2 Events </h1>\n\t\t\t\t<hr>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div  *ngFor=\"let evt of events\"  class=\"col-md-5\">\n\t\t\t\t\t\t\t<events-thumbnail  (click)=\"handlethumbnailClick(evt.name)\" [event]=\"evt\"> </events-thumbnail>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t "
     }),
-    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService])
+    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService, router_1.ActivatedRoute])
 ], EventsListComponent);
 exports.EventsListComponent = EventsListComponent;
 //# sourceMappingURL=events-list.component.js.map

@@ -20,7 +20,7 @@ NavBarComponent = __decorate([
     core_1.Component({
         selector: 'nav-bar',
         templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n\t\t.nav.navbar-navbar {font-size: 15px;}\n    #searchForm {margin-right: 100px;}\n\t\t@media (max-width: 1200px) {#searchForm {display:none}}\n\t"]
+        styles: ["\n\t\t.nav.navbar-navbar {font-size: 15px;}\n    #searchForm {margin-right: 100px;}\n\t\t@media (max-width: 1200px) {#searchForm {display:none}}\n\t\tli > a.active { color: #F97924; }\n\t"]
     }),
     __metadata("design:paramtypes", [])
 ], NavBarComponent);
