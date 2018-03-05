@@ -31,9 +31,10 @@
       </ul>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
-          <li>
-            <a [routerLink]="['user/profile']" >Bienvenue John</a>
-          </li>
+            <li>
+                <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']" >Login</a>
+                <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Bienvenue {{auth.currentUser.firstName}}</a>
+            </li>
         </ul>
       </div>
       <form id="searchForm"  class="navbar-form navbar-right"  >

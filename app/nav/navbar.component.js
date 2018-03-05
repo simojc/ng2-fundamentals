@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-//Le path � @angular/core � est d�fini dans "systmejs.congig.js" comme correspondant � 'npm:@angular/core/bundles/core.umd.js',
-// � npm: � est mapp� au dossier "node_modules" tel que d�fini tjrs dans "systmejs.congig.js"
+var auth_service_1 = require("../user/auth.service");
 var NavBarComponent = (function () {
-    function NavBarComponent() {
+    function NavBarComponent(auth) {
+        this.auth = auth;
     }
     return NavBarComponent;
 }());
@@ -22,7 +22,7 @@ NavBarComponent = __decorate([
         templateUrl: 'app/nav/navbar.component.html',
         styles: ["\n\t\t.nav.navbar-navbar {font-size: 15px;}\n    #searchForm {margin-right: 100px;}\n\t\t@media (max-width: 1200px) {#searchForm {display:none}}\n\t\tli > a.active { color: #F97924; }\n\t"]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], NavBarComponent);
 exports.NavBarComponent = NavBarComponent;
 //# sourceMappingURL=navbar.component.js.map

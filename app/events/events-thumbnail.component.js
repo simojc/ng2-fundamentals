@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-//Le path « @angular/core » est défini dans "systmejs.congig.js" comme correspondant à 'npm:@angular/core/bundles/core.umd.js',
-// « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
 var EventsThumbnailComponent = (function () {
     function EventsThumbnailComponent() {
     }

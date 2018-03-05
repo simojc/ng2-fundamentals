@@ -1,7 +1,8 @@
 
 import { Component } from '@angular/core'
-//Le path � @angular/core � est d�fini dans "systmejs.congig.js" comme correspondant � 'npm:@angular/core/bundles/core.umd.js',
-// � npm: � est mapp� au dossier "node_modules" tel que d�fini tjrs dans "systmejs.congig.js"
+
+import { AuthService } from '../user/auth.service'
+
 @Component({
 	selector: 'nav-bar',
 	templateUrl: 'app/nav/navbar.component.html',
@@ -13,5 +14,8 @@ import { Component } from '@angular/core'
 	`]
 })
 export class NavBarComponent {
+    constructor(private auth: AuthService) {
+
+    }
 
 }

@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app",
+    "\\app\\events",
+    "\\app\\events\\event-details",
+    "\\app\\events\\shared"
   ],
+  "SelectedNode": "\\app\\events\\event-details\\event-details.component.ts",
   "PreviewInSolutionExplorer": false
 }

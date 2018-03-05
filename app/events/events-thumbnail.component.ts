@@ -1,7 +1,8 @@
 
 import { Component, Input } from '@angular/core'
-//Le path « @angular/core » est défini dans "systmejs.congig.js" comme correspondant à 'npm:@angular/core/bundles/core.umd.js',
-// « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
+
+import { IEvent } from './shared/index'
+
 @Component({
 	selector: 'events-thumbnail',
 	templateUrl: 'app/events/events-thumbnail.component.html',
@@ -13,7 +14,7 @@ import { Component, Input } from '@angular/core'
 })
 export class EventsThumbnailComponent {
 
-	@Input() event:any
+    @Input() event: IEvent
 	
 	getStartTimeStyle(): any {
 		if (this.event && this.event.time === '8:00 am')			

@@ -17,6 +17,7 @@ var navbar_component_1 = require("./nav/navbar.component");
 var _404_component_1 = require("./errors/404.component");
 var toastr_service_1 = require("./common/toastr.service");
 var routes_1 = require("./routes");
+var auth_service_1 = require("./user/auth.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -41,6 +42,7 @@ AppModule = __decorate([
             index_1.EventService,
             toastr_service_1.ToastrService,
             index_1.EventListResolver,
+            auth_service_1.AuthService,
             {
                 provide: 'canDeactivateCreateEvent',
                 useValue: checkDirtyState

@@ -1,7 +1,9 @@
 
 import { Component, OnInit } from '@angular/core'
 import { EventService } from  '../shared/event.service'
-import { ActivatedRoute } from  '@angular/router'
+import { ActivatedRoute } from '@angular/router'
+
+import { IEvent } from '../shared/index'
 
 @Component({
 	// Aucun sélecteur, car on va l'utiliser comme un enfant d'un aute component, donc pas besoin de sélecteur
@@ -14,7 +16,7 @@ import { ActivatedRoute } from  '@angular/router'
 })
 export class EventDetailsComponent implements OnInit {
 
-	event:any
+    event: IEvent
 	constructor(private eventService: EventService, private route:ActivatedRoute)  {
 		//this.eventService = eventService
 	}

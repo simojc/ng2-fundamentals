@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core'
-//Le path « @angular/core » est défini dans "systmejs.congig.js" comme correspondant à 'npm:@angular/core/bundles/core.umd.js',
-// « npm: » est mappé au dossier "node_modules" tel que défini tjrs dans "systmejs.congig.js"
+
+import { IEvent } from './shared/index'
 
 import { EventService } from  './shared/event.service'
 
@@ -24,7 +24,7 @@ import { ActivatedRoute } from '@angular/router'
 		 `
 })
 export class EventsListComponent implements OnInit {
-	events:any[]
+    events: IEvent[]
 	//eventService
 	constructor(private eventService: EventService, private toastr: ToastrService, private route:ActivatedRoute)  {
 		//this.eventService = eventService
