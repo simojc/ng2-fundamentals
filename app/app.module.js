@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 var index_1 = require("./events/index");
 var events_app_component_1 = require("./events-app.component");
 var navbar_component_1 = require("./nav/navbar.component");
@@ -27,6 +28,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            forms_1.ReactiveFormsModule,
             router_1.RouterModule.forRoot(routes_1.appRoutes)
         ],
         declarations: [
@@ -36,7 +39,8 @@ AppModule = __decorate([
             navbar_component_1.NavBarComponent,
             index_1.EventDetailsComponent,
             index_1.CreateEventComponent,
-            _404_component_1.Error404Component
+            _404_component_1.Error404Component,
+            index_1.CreateSessionComponent
         ],
         providers: [
             index_1.EventService,
