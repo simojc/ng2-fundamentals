@@ -4,10 +4,8 @@
     "\\app",
     "\\app\\common",
     "\\app\\events",
-    "\\app\\events\\event-details",
-    "\\app\\nav",
-    "\\app\\user"
+    "\\app\\nav"
   ],
-  "SelectedNode": "\\app\\app.module.ts",
+  "SelectedNode": "\\app\\common\\modalTrigger.directive.ts",
   "PreviewInSolutionExplorer": false
 }

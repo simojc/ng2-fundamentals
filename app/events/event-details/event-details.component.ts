@@ -13,20 +13,22 @@ import { IEvent, ISession } from '../shared/index'
 		.event-image {height: 100px;}
         a {cursor:pointer}
 	`]
-
 })
 export class EventDetailsComponent implements OnInit {
 
     event: IEvent
-    addMode:boolean
+    addMode: boolean
+    filterBy: string = 'all'
+    sortBy: string = 'votes'
+
 	constructor(private eventService: EventService, private route:ActivatedRoute)  {
 		//this.eventService = eventService
 	}
 
 	ngOnInit() {
-			console.log(this.route.snapshot.params['id'])
+			//console.log(this.route.snapshot.params['id'])
 			this.event = this.eventService.getEvent(+this.route.snapshot.params['id'])
-			console.log(this.route.snapshot.params['id'])
+			//console.log(this.route.snapshot.params['id'])
     }
 
     addSession() {
