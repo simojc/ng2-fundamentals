@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\common",
-    "\\app\\events",
-    "\\app\\nav"
+    "\\app\\nav",
+    "\\app\\user"
   ],
-  "SelectedNode": "\\app\\common\\modalTrigger.directive.ts",
+  "SelectedNode": "\\app\\user\\auth.service.ts",
   "PreviewInSolutionExplorer": false
 }

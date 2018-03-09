@@ -2,6 +2,10 @@ import { Component, Input, OnChanges } from '@angular/core'
 
 import { ISession, restrictedWords } from '../shared/index'
 
+import { AuthService } from '../../user/auth.service'
+
+import { VoterService } from './voter.service'
+
 @Component({
     selector: 'session-list',
     templateUrl: 'app/events/event-details/session-list.component.htm'
@@ -11,7 +15,13 @@ export class SessionListComponent implements OnChanges {
     @Input() sessions: ISession[]
     @Input() filterBy: string
     @Input() sortBy: string
+    @Input() eventId: number
     visibleSessions: ISession[] = []
+
+
+    constructor(private auth: AuthService, private voterService: VoterService) {
+
+    }
 
     ngOnChanges() {
         if (this.sessions) {
@@ -19,6 +29,25 @@ export class SessionListComponent implements OnChanges {
             this.sortBy === 'name' ? this.visibleSessions.sort(sortByNamesAsc) : this.visibleSessions.sort(sortByVotesDesc)
         }
     }
+     
+    toggleVote(session: ISession) {
+        if (this.userHasVoted(session)) {
+            this.voterService.deleteVoter(this.eventId, session, this.auth.currentUser.userName)
+        } else {
+            this.voterService.addVoter(this.eventId, session, this.auth.currentUser.userName)
+        }
+        if (this.sortBy === 'votes') {
+            this.visibleSessions.sort(sortByVotesDesc)
+        }
+
+    }
+
+
+    userHasVoted(session: ISession) {
+        return this.voterService.userHasVoted(session, this.auth.currentUser.userName )
+    }
+
+
     // Cett efonction fait une copie du tableau des sessions dans le tableau visibleSessions
     // Le filtre ne s'applique pas sur 'session' qui reste inchangé tout le long.
     // C'est la nouvelle façon de filtre dans Angular 2 (contrairement à Angular 1 qui filtre avec les pipe)

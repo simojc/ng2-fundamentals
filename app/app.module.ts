@@ -1,5 +1,6 @@
 import { NgModule } from  '@angular/core'
-import { BrowserModule } from  '@angular/platform-browser'
+import { BrowserModule } from '@angular/platform-browser'
+import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
@@ -9,11 +10,14 @@ import {
 	EventService,
 	EventDetailsComponent,
 	CreateEventComponent,
-	EventRouteActivator,
+	EventResolver,
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
-    DurationPipe
+    UpvoteComponent,
+    DurationPipe,
+    VoterService,
+    LocationValidator
     
 } from './events/index'
 
@@ -39,6 +43,7 @@ declare let jQuery : Object
 	imports: [
         BrowserModule,
         FormsModule,
+        HttpModule,
         ReactiveFormsModule,
 		RouterModule.forRoot(appRoutes)
 			],
@@ -55,6 +60,8 @@ declare let jQuery : Object
         CollapsibleWellComponent,
         SimpleModalComponent,
         ModalTriggerDirective,
+        UpvoteComponent,
+        LocationValidator,
         DurationPipe
       
 	],
@@ -64,7 +71,8 @@ declare let jQuery : Object
 		ToastrService,
         EventListResolver,
         AuthService,
-        EventRouteActivator,
+        EventResolver,
+        VoterService,
 		{
 			provide: 'canDeactivateCreateEvent',
 			useValue: checkDirtyState

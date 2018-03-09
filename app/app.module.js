@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var index_1 = require("./events/index");
@@ -30,6 +31,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
             forms_1.ReactiveFormsModule,
             router_1.RouterModule.forRoot(routes_1.appRoutes)
         ],
@@ -46,6 +48,8 @@ AppModule = __decorate([
             index_2.CollapsibleWellComponent,
             index_2.SimpleModalComponent,
             index_2.ModalTriggerDirective,
+            index_1.UpvoteComponent,
+            index_1.LocationValidator,
             index_1.DurationPipe
         ],
         providers: [
@@ -54,7 +58,8 @@ AppModule = __decorate([
             index_2.ToastrService,
             index_1.EventListResolver,
             auth_service_1.AuthService,
-            index_1.EventRouteActivator,
+            index_1.EventResolver,
+            index_1.VoterService,
             {
                 provide: 'canDeactivateCreateEvent',
                 useValue: checkDirtyState
