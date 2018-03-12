@@ -30,12 +30,50 @@ export class AuthService {
         })
     }
 
+    isAuthenticated() {
+        return !!this.currentUser
+        ///  returne True si current User est rensigné (c-d-d si la propriété n'est pas vide)
+    }
+
+    checkAuthenticationStatus() {
+        return this.http.get('/api/currentIdentity').map((response: any) => {
+            if (response._body) {  /// ce if est juste pour vérifier si la réponse n'est pas vide. '_body' n'est pas une propriété de response, mais son type
+                return response.json()
+            } else {
+                return {}
+            }
+        }).do(currentUser => {
+            if (currentUser.userName) {
+                this.currentUser = currentUser
+            }
+        }).subscribe()
+    }
+
+
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName
         this.currentUser.lastName = lastName
+
+        let headers = new Headers({ 'Content-Type': 'application/json' })
+        let options = new RequestOptions({ headers: headers })
+
+        let url = `/api/users/${this.currentUser.id}`
+
+        return this.http.put(url, JSON.stringify(this.currentUser),options)
+     
     }
 
-    isAuthenticated() {
-        return !!this.currentUser;
+    logout() {
+
+        this.currentUser = undefined
+
+        let headers = new Headers({ 'Content-Type': 'application/json' })
+        let options = new RequestOptions({ headers: headers })
+
+        let url = `/api/logout`
+
+        return this.http.post(url, JSON.stringify({}), options)
     }
+
+  
 }

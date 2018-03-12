@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var auth_service_1 = require("../user/auth.service");
 var index_1 = require("../events/index");
+var router_1 = require("@angular/router");
 var NavBarComponent = (function () {
-    function NavBarComponent(auth, eventService) {
+    function NavBarComponent(auth, eventService, router) {
         this.auth = auth;
         this.eventService = eventService;
+        this.router = router;
         this.searchTerm = "";
     }
     NavBarComponent.prototype.searchSessions = function (searchTerm) {
@@ -22,6 +24,12 @@ var NavBarComponent = (function () {
         this.eventService.searchSessions(searchTerm).subscribe(function (sessions) {
             _this.foundSessions = sessions;
             // console.log(this.foundSessions)
+        });
+    };
+    NavBarComponent.prototype.logout = function () {
+        var _this = this;
+        this.auth.logout().subscribe(function () {
+            _this.router.navigate(['user/login']);
         });
     };
     return NavBarComponent;
@@ -32,7 +40,7 @@ NavBarComponent = __decorate([
         templateUrl: 'app/nav/navbar.component.html',
         styles: ["\n\t\t.nav.navbar-navbar {font-size: 15px;}\n    #searchForm {margin-right: 100px;}\n\t\t@media (max-width: 1200px) {#searchForm {display:none}}\n\t\tli > a.active { color: #F97924; }\n\t"]
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, index_1.EventService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, index_1.EventService, router_1.Router])
 ], NavBarComponent);
 exports.NavBarComponent = NavBarComponent;
 //# sourceMappingURL=navbar.component.js.map

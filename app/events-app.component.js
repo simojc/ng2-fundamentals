@@ -9,11 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var auth_service_1 = require("./user/auth.service");
 //Le path � @angular/core � est d�fini dans "systmejs.congig.js" comme correspondant � 'npm:@angular/core/bundles/core.umd.js',
 // � npm: � est mapp� au dossier "node_modules" tel que d�fini tjrs dans "systmejs.congig.js"
 var EventsAppComponent = (function () {
-    function EventsAppComponent() {
+    function EventsAppComponent(auth) {
+        this.auth = auth;
     }
+    EventsAppComponent.prototype.ngOnInit = function () {
+        this.auth.checkAuthenticationStatus();
+    };
     return EventsAppComponent;
 }());
 EventsAppComponent = __decorate([
@@ -21,7 +26,7 @@ EventsAppComponent = __decorate([
         selector: 'events-app',
         template: "\n\t<nav-bar> </nav-bar>\n\t<router-outlet> </router-outlet>\t\n\t"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], EventsAppComponent);
 exports.EventsAppComponent = EventsAppComponent;
 //# sourceMappingURL=events-app.component.js.map
