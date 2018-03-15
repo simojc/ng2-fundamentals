@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\app\\nav",
-    "\\app\\user"
+    "\\app"
   ],
-  "SelectedNode": "\\app\\user\\auth.service.ts",
+  "SelectedNode": "\\app\\karma.conf.js",
   "PreviewInSolutionExplorer": false
 }

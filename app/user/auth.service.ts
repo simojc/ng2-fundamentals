@@ -1,7 +1,9 @@
 
 import { Injectable } from '@angular/core'
 
-import { Subject, Observable } from 'rxjs/Rx'
+import { Observable } from 'rxjs/Observable'
+import { Subject } from 'rxjs/Subject'
+
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 
 import { IUser } from './user.model'

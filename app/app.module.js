@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require("./rxjs-extentions");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
@@ -33,7 +34,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             forms_1.ReactiveFormsModule,
-            router_1.RouterModule.forRoot(routes_1.appRoutes)
+            router_1.RouterModule.forRoot(routes_1.appRoutes, { preloadingStrategy: router_1.PreloadAllModules })
         ],
         declarations: [
             events_app_component_1.EventsAppComponent,

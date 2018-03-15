@@ -1,7 +1,8 @@
-import { NgModule } from  '@angular/core'
+import  './rxjs-extentions'
+import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
-import { RouterModule } from '@angular/router'
+import { RouterModule, PreloadAllModules } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import {
@@ -45,7 +46,7 @@ declare let jQuery : Object
         FormsModule,
         HttpModule,
         ReactiveFormsModule,
-		RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules } )
 			],
 	declarations: [
 		EventsAppComponent,

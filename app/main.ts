@@ -1,8 +1,10 @@
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
   
- import  { AppModule } from  './app.module'
- 
+import { AppModule } from './app.module'
+import { enableProdMode } from '@angular/core'
+
+enableProdMode()
  platformBrowserDynamic().bootstrapModule(AppModule)   
 	// Pour dire à l'application que nous voulons utiliser 
 	// ce module pour boostrapper nottre application
